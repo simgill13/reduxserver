@@ -12,15 +12,21 @@ const mapStateToProps = (state, props) => ({
 
 export  class Card extends React.Component {
     constructor(props) {
-        super(props);     
+        super(props);
     }
 
-   
+    grabVal() {
+
+    }
+
     render() {
         return (
             <div className="Card">
+             <h2> {this.props.feedback}</h2>
              <h3> {this.props.guesses}</h3>
-               
+             <input className = "input-field" ></input>
+             <button type ="submit" onClick= {this.grabVal} >Guess</button>
+             <p>Guess # {this.props.guesses}</p>
             </div>
         );
     }

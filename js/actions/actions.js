@@ -14,3 +14,9 @@ export const TOGGLE_INFO_MODAL = 'TOGGLE_INFO_MODAL';
 export const toggleInfoModal = () => ({
     type: TOGGLE_INFO_MODAL
 });
+
+export const UPDATE_GUESS_FIELD = 'UPDATE_GUESS_FIELD';
+export const updateGuessField = value => ({
+    type: UPDATE_GUESS_FIELD,
+    value
+})

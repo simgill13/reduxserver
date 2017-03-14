@@ -10,9 +10,9 @@ export const makeGuess = (guess) => ({
     guess
 });
 
-export const TOGGLE_INFO_MODAL = 'TOGGLE_INFO_MODAL';
-export const toggleInfoModal = () => ({
-    type: TOGGLE_INFO_MODAL
+export const TOGGLE_INFO_MODEL = 'TOGGLE_INFO_MODEL';
+export const toggleInfoModel = () => ({
+    type: TOGGLE_INFO_MODEL
 });
 
 export const UPDATE_GUESS_FIELD = 'UPDATE_GUESS_FIELD';

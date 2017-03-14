@@ -1,7 +1,7 @@
 import {
     NEW_GAME,
     MAKE_GUESS,
-    TOGGLE_INFO_MODAL,
+    TOGGLE_INFO_MODEL,
     UPDATE_GUESS_FIELD
 } from '../actions/actions';
 
@@ -9,7 +9,7 @@ const initialState = {
     guesses: [],
     feedback: 'Make your guess!',
     correctAnswer: Math.round(Math.random() * 100),
-    showInfoModal: false,
+    showInfoModel: false,
     guessDraft:""
 };
 
@@ -31,7 +31,7 @@ export default (state, action) => {
             });
 
             return state;
-        } 
+        }
 
 
         const difference = Math.abs(guess - state.correctAnswer);
@@ -56,14 +56,15 @@ export default (state, action) => {
         state = Object.assign({}, state, {
             feedback,
             guesses: state.guesses.concat(action.guess),
-            guessDraft: " "
+            guessDraft: " ",
+            guesses: [...state.guesses,state.guessDraft]
         });
 
         return state;
     }
-    else if (action.type === TOGGLE_INFO_MODAL) {
+    else if (action.type === TOGGLE_INFO_MODEL) {
          state = Object.assign({}, state, {
-             showInfoModal: !state.showInfoModal
+             showInfoModel: !state.showInfoModel
         });
 
         return state;
@@ -78,21 +79,3 @@ export default (state, action) => {
     }
     return state;
 };
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

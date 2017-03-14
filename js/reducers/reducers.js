@@ -1,14 +1,16 @@
 import {
     NEW_GAME,
     MAKE_GUESS,
-    TOGGLE_INFO_MODAL
+    TOGGLE_INFO_MODAL,
+    UPDATE_GUESS_FIELD
 } from '../actions/actions';
 
 const initialState = {
     guesses: [],
     feedback: 'Make your guess!',
     correctAnswer: Math.round(Math.random() * 100),
-    showInfoModal: false
+    showInfoModal: false,
+    guessDraft:""
 };
 
 export default (state, action) => {
@@ -22,14 +24,15 @@ export default (state, action) => {
         return state;
     }
     else if (action.type === MAKE_GUESS) {
-        const guess = parseInt(action.guess, 10);
+        const guess = parseInt(state.guessDraft, 10);
         if (isNaN(guess)) {
             state = Object.assign({}, state, {
                 feedback: 'Please enter a valid number'
             });
 
             return state;
-        }
+        } 
+
 
         const difference = Math.abs(guess - state.correctAnswer);
 
@@ -52,7 +55,8 @@ export default (state, action) => {
 
         state = Object.assign({}, state, {
             feedback,
-            guesses: state.guesses.concat(action.guess)
+            guesses: state.guesses.concat(action.guess),
+            guessDraft: " "
         });
 
         return state;
@@ -61,7 +65,34 @@ export default (state, action) => {
          state = Object.assign({}, state, {
              showInfoModal: !state.showInfoModal
         });
+
+        return state;
+
+    }
+
+    else if (action.type === UPDATE_GUESS_FIELD) {
+        state = Object.assign({},state,{
+            guessDraft:action.value
+        })
         return state;
     }
     return state;
 };
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

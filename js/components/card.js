@@ -1,22 +1,36 @@
 import React from 'react';
 import {connect} from 'react-redux';
+import {
+    updateGuessField,
+    makeGuess
+} from '../actions/actions'; 
 
 
 
 const mapStateToProps = (state, props) => ({
     guesses: state.guesses,
     feedback:state.feedback,
-    correctAnswer: state.correctAnswer
+    correctAnswer: state.correctAnswer,
+    guessDraft:state.guessDraft
 });
 
 
 export  class Card extends React.Component {
     constructor(props) {
         super(props);
+        this.grabVal = this.grabVal.bind(this);
+        this.makeGuess = this.makeGuess.bind(this);
     }
 
-    grabVal() {
+    grabVal(event) {
+        console.log(event.target.value)
+       this.props.dispatch(updateGuessField(event.target.value)) 
+    }
 
+
+
+    makeGuess(event) {
+       this.props.dispatch(makeGuess()) 
     }
 
     render() {
@@ -24,8 +38,8 @@ export  class Card extends React.Component {
             <div className="Card">
              <h2> {this.props.feedback}</h2>
              <h3> {this.props.guesses}</h3>
-             <input className = "input-field" ></input>
-             <button type ="submit" onClick= {this.grabVal} >Guess</button>
+             <input className = "input-field" onChange={this.grabVal} value={this.props.guessDraft} ></input>
+             <button type ="submit" onClick= {this.makeGuess} >Guess</button>
              <p>Guess # {this.props.guesses}</p>
             </div>
         );
@@ -33,3 +47,5 @@ export  class Card extends React.Component {
 }
 
 export default connect(mapStateToProps)(Card);
+
+

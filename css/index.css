@@ -1,16 +1,10 @@
 .Card {
-	text-align: center;
-  border: .3px solid grey;
-  height: 30%;
-
-  max-width: 20em;
-
-
-margin: auto;
-
-box-shadow: 6px 7px 5px #333333;
-background-color: #EFEFEF;
-font-family: 'Raleway', sans-serif;
+  position: absolute;
+  top: 500px;
+  left: 400px;
+  height: 300px;
+  width: 500px;
+  border: 1px solid black;
 }
 
 .Game {
@@ -22,9 +16,14 @@ font-family: 'Raleway', sans-serif;
   margin: 0px;
 }
 
-/*btn*/
+.top-nav {
+  display: flex;
+  justify-content: space-around;
+}
+
 .need-help {
-  
+  left: 25px;
+  top: 10px;
   border: 0;
   background: none;
   color: white;
@@ -33,74 +32,26 @@ font-family: 'Raleway', sans-serif;
 
 
 }
-/*btn*/
+
 .new-game {
-  float: right;
+  right: 25px;
+  top: 10px;
   border: 0;
   background: none;
   color: white;
   font-size: 1.25em;
   font-family: 'Raleway', sans-serif;
 
+
 }
-
-.new-game:hover{
-	font-size: 1.37em;
-	font-weight: bold;
-}
-
-
-.need-help:hover{
-	font-size: 1.37em;
-	font-weight: bold;
-}
-
-
-
-/*hot or cold title*/
 .game-title {
-	text-align: center;
-    padding: 20px;
-    color: white;
-    font-size: 2.25em;
-    font-family: 'Raleway', sans-serif;
-    font-weight: bold;
+  position: absolute;
+  top: 50px;
+  text-align: center;
+  color: white;
+  font-size: 2.25em;
+  font-family: 'Raleway', sans-serif;
+  font-weight: bold;
 
 
 }
-
-.bannerDiv{
-	display: flex;
-	width: 100%;
-	height: 15%;
-	background-color: white;
-	margin-bottom: 5%;
-}
-
-.banner{
-	margin: auto;
-}
-
-
-
-.input-field{
-	display: flex;
-    width: 15em;
-    margin: auto;
-}
-
-.guessButton{
-    display: flex;
-    margin: auto;
-}
-
-
-
-
-.array{
-font-family: 'Diplomata SC', cursive;
-font-family: 'Roboto Condensed', sans-serif;}
-
-
-
-

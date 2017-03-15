@@ -16,7 +16,12 @@ describe('Help component', function() {
    const renderer = TestUtils.createRenderer();
    renderer.render(<Help />);
    const result = renderer.getRenderOutput();
-   console.log(result);
+   result.props.className.should.equal('help-screen');
+   result.props.should.be.a('object');
+   result.props.children[0].props.should.be.a('object');
+   result.props.children[4].props.type.should.equal('submit')
 
   })
+
+
 })

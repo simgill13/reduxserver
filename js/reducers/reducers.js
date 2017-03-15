@@ -46,6 +46,9 @@ export default (state, action) => {
         else if (difference >= 10) {
             feedback = 'You\'re Warm';
         }
+        else if (difference >= 5)  {
+            feedback = "OMG, You're super close"
+        }
         else if (difference >= 1) {
             feedback = 'You\'re Hot!';
         }

@@ -37,11 +37,13 @@ export class Card extends React.Component {
     render() {
         return (
           <div className="Card">
-             <h2> {this.props.feedback}</h2>
-             <input className = "input-field" onChange={this.grabVal} value={this.props.guessDraft} ></input>
-             <button type ="submit" onClick= {this.makeGuess} >Guess</button>
-             <p>Guess # {this.props.guesses.length}</p>
-             <h3>{this.props.guesses}</h3>
+            <div className="bannerDiv">
+                <h2 className="banner"> {this.props.feedback}</h2>
+            </div>
+            <input className = "input-field" onChange={this.grabVal} value={this.props.guessDraft} ></input>
+            <button className="guessButton" type ="submit" onClick= {this.makeGuess} >Guess</button>
+            <p>Guess # {this.props.guesses.length}</p>
+            <h3 className="array">  {` ${this.props.guesses} `} </h3>
         </div>
         );
     }

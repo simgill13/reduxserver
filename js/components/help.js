@@ -22,7 +22,6 @@ export class Help extends React.Component {
     }
 
     render() {
-        if(this.props.showInfoModel === true){
           return (
               <div className="help-screen">
               <h1>What do I do?</h1>
@@ -36,12 +35,8 @@ export class Help extends React.Component {
               <button type="submit" onClick={this.renderGame}>Go Back</button>
               </div>
           )}
-          return(
-            <div>
-            <Game />
-            </div>
-          )
-    }
+
+            
 }
 
 export default connect(mapStateToProps)(Help);

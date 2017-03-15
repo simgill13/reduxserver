@@ -6,6 +6,8 @@ import {
     newGame,
     toggleInfoModel
 } from '../actions/actions';
+
+
 const mapStateToProps = (state, props) => ({
     guesses: state.guesses,
     showInfoModel: state.showInfoModel
@@ -30,13 +32,15 @@ export class Game extends React.Component {
             </div>
         )}
         return (
-            <div className="Game">
+          <div className="Game">
             {this.props.showInfoModel}
-            <button type="submit" onClick={this.showHelp} > WHAT? </button>
-            <button type ="submit" onClick={this.resetGame} > +NEW GAME </button>
-             <h1> HOT or COLD </h1>
-              <Card />
+            <div className = "top-nav">
+            <button className = "need-help" type="submit" onClick={this.showHelp} > NEED HELP? </button>
+            <button type ="submit" className = "new-game" onClick={this.resetGame} > +NEW GAME </button>
             </div>
+             <h1 className = "game-title"><span className="hot">HOT</span>or<span className="cold">COLD</span></h1>
+              <Card />
+          </div>
         )
     }
   }

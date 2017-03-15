@@ -3,15 +3,13 @@
 	text-align: center;
   border: .3px solid grey;
   height: 30%;
-
   max-width: 20em;
-
-
-margin: auto;
-
-box-shadow: 6px 7px 5px #333333;
-background-color: #EFEFEF;
-font-family: 'Raleway', sans-serif;
+  margin: auto;
+  box-shadow: 6px 7px 5px #333333;
+  background-color: #EFEFEF;
+  font-family: 'Raleway', sans-serif;
+  opacity: 1;
+  transition: opacity 1500ms ease;
 }
 
 .Game {
@@ -21,6 +19,11 @@ font-family: 'Raleway', sans-serif;
   width: 100%;
   height: 100%;
   margin: 0px;
+
+}
+
+.Card.hidden {
+  opacity: 0;
 }
 
 /*btn*/

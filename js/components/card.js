@@ -4,6 +4,7 @@ import {
     updateGuessField,
     makeGuess
 } from '../actions/actions';
+import ReactCSSTransitionGroup from 'react-addons-css-transition-group'
 
 
 
@@ -19,6 +20,9 @@ const mapStateToProps = (state, props) => ({
 export class Card extends React.Component {
     constructor(props) {
         super(props);
+        this.state = {
+          started: false
+        }
         this.grabVal = this.grabVal.bind(this);
         this.makeGuess = this.makeGuess.bind(this);
     }
@@ -28,15 +32,18 @@ export class Card extends React.Component {
        this.props.dispatch(updateGuessField(event.target.value))
     }
 
-
-
+    componentDidMount() {
+      setTimeout(()=>{
+        this.setState({started:true})
+      }, 0)
+    }
     makeGuess(event) {
        this.props.dispatch(makeGuess())
     }
 
     render() {
         return (
-          <div className="Card">
+          <div className={`Card ${this.state.started ? '' : 'hidden'}`}>
             <div className="bannerDiv">
                 <h2 className="banner"> {this.props.feedback}</h2>
             </div>

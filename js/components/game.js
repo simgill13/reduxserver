@@ -32,7 +32,7 @@ export class Game extends React.Component {
             </div>
         )}
         return (
-          <div className="Game">
+          <div className='Game' >
             {this.props.showInfoModel}
             <div className = "top-nav">
             <button className = "need-help" type="submit" onClick={this.showHelp} > NEED HELP? </button>

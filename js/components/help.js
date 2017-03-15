@@ -3,6 +3,7 @@ import {connect} from 'react-redux';
 import {
    toggleInfoModel
 } from '../actions/actions';
+import ReactCSSTransitionGroup from 'react-addons-css-transition-group'
 
 
 
@@ -23,7 +24,7 @@ export class Help extends React.Component {
 
     render() {
           return (
-              <div className="help-screen">
+            <div className="help-screen">
               <h1>What do I do?</h1>
               <p>This is a Hot or Cold Number Guessing Game. The game goes like this:</p>
               <ul>
@@ -33,10 +34,10 @@ export class Help extends React.Component {
               </ul>
               <p>So, Are you Ready?</p>
               <button type="submit" onClick={this.renderGame}>Go Back</button>
-              </div>
+            </div>
           )}
 
-            
+
 }
 
 export default connect(mapStateToProps)(Help);

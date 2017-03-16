@@ -5,6 +5,8 @@ import {
     UPDATE_GUESS_FIELD,
     REQUEST_DATA,
     RECIEVE_DATA,
+    UPDATE_USER,
+    TOGGLE_COMPLETED,
 } from '../actions/actions';
 
 const initialState = {
@@ -17,6 +19,7 @@ const initialState = {
     bestScore: 100,
     completed: false,
     currentNumber:-1,
+    userName: '',
 };
 
 export default (state, action) => {
@@ -83,6 +86,13 @@ export default (state, action) => {
 
     }
 
+    else if (action.type === TOGGLE_COMPLETED) {
+         state = Object.assign({}, state, {
+             completed: !state.completed
+        });
+        return state;
+    }
+
     else if (action.type === UPDATE_GUESS_FIELD) {
         state = Object.assign({},state,{
             guessDraft:action.value
@@ -99,6 +109,11 @@ export default (state, action) => {
             loadingApi:false,
             bestScore: action.data
         })
+    }
+    else if (action.type === UPDATE_USER) {
+      state = Object.assign({}, state, {
+        userName: action.userName
+      })
     }
     return state;
 };

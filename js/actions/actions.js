@@ -15,10 +15,21 @@ export const toggleInfoModel = () => ({
     type: TOGGLE_INFO_MODEL
 });
 
+export const TOGGLE_COMPLETED = 'TOGGLE_COMPLETED';
+export const toggleComplete = () => ({
+    type: TOGGLE_COMPLETED
+})
+
 export const UPDATE_GUESS_FIELD = 'UPDATE_GUESS_FIELD';
 export const updateGuessField = value => ({
     type: UPDATE_GUESS_FIELD,
     value
+})
+
+export const UPDATE_USER = 'UPDATE_USER';
+export const updateUser = (userName) => ({
+    type: UPDATE_USER,
+    userName
 })
 
 export const REQUEST_DATA = 'REQUEST_DATA';

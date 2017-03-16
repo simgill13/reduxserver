@@ -52,7 +52,7 @@ export class Game extends React.Component {
             <button type ="submit" className = "new-game" onClick={this.resetGame} > +NEW GAME </button>
             </div>
              <h1 className = "game-title">Feeling Lucky? </h1>
-              <p className = "bestScore">{this.props.loadingApi ? "Loading..." : `Top Score ${this.props.bestScore}`}</p>
+              <p className = "bestScore">{this.props.loadingApi ? "Loading..." : `Top Score: ${this.props.bestScore}`}</p>
               <Card />
           </div>
         )

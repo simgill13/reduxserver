@@ -39,6 +39,7 @@ export const fetchData = () => {
 
     fetch('http://localhost:8081/api/guesses')
     .then(response => response.json())
-    .then(json => dispatch(recieveData(json.results)))
+    .then(json => {
+    	console.log(json); dispatch(recieveData(json.guesses))})
   }
 }

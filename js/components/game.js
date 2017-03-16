@@ -5,8 +5,7 @@ import Help from './help';
 import {
     newGame,
     toggleInfoModel,
-    requestData,
-    recieveData
+    fetchData
 } from '../actions/actions';
 
 
@@ -18,7 +17,7 @@ const mapStateToProps = (state, props) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  getData: () => dispatch(requestData())
+  getData: () => dispatch(fetchData())
 })
 
 export class Game extends React.Component {
@@ -26,15 +25,14 @@ export class Game extends React.Component {
         super(props);
         this.resetGame = this.resetGame.bind(this);
         this.showHelp = this.showHelp.bind(this);
+        this.props.getData();
     }
 
     showHelp(event) {
        this.props.dispatch(toggleInfoModel())
     }
 
-    componentDidMount() {
-    this.props.getData()
-  }
+   
 
 
 
@@ -48,7 +46,7 @@ export class Game extends React.Component {
 
 
     render() {
-      
+      console.log(this.props.bestScore);
         if(this.props.showInfoModel === true){
           return (
             <div className = "Help">

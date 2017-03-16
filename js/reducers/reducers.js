@@ -2,7 +2,9 @@ import {
     NEW_GAME,
     MAKE_GUESS,
     TOGGLE_INFO_MODEL,
-    UPDATE_GUESS_FIELD
+    UPDATE_GUESS_FIELD,
+    REQUEST_DATA,
+    RECIEVE_DATA
 } from '../actions/actions';
 
 const initialState = {
@@ -10,7 +12,9 @@ const initialState = {
     feedback: 'Pick Between 1 and 100',
     correctAnswer: Math.round(Math.random() * 100),
     showInfoModel: false,
-    guessDraft:""
+    guessDraft:"",
+    loadingApi: false,
+    bestScore: 100
 };
 
 export default (state, action) => {
@@ -80,5 +84,29 @@ export default (state, action) => {
         })
         return state;
     }
+    else if (action.type === REQUEST_DATA) {
+        state = Object.assign({},state,{
+            loadingApi: true
+        })
+    }
+    else if (action.type === RECIEVE_DATA) {
+        state = Object.assign({},state,{
+            loadingApi:false,
+            bestScore: action.data
+        })
+    }
     return state;
 };
+
+
+
+
+
+
+
+
+
+
+
+
+

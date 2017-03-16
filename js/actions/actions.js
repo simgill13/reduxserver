@@ -20,3 +20,25 @@ export const updateGuessField = value => ({
     type: UPDATE_GUESS_FIELD,
     value
 })
+
+export const REQUEST_DATA = 'REQUEST_DATA';
+export const requestData = () => ({
+  type: REQUEST_DATA
+})
+
+export const RECIEVE_DATA = 'RECIEVE_DATA';
+export const recieveData = (data) => ({
+  type: RECIEVE_DATA,
+  data
+})
+
+
+export const fetchData = () => {
+  return (dispatch) => {
+    dispatch(requestData())
+
+    fetch('http://localhost:8081/api/guesses')
+    .then(response => response.json())
+    .then(json => dispatch(recieveData(json.results)))
+  }
+}

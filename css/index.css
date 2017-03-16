@@ -5,7 +5,7 @@
   display: block;
 	text-align: center;
   border: 1px solid #D4FD02;
-  height: 30%;
+  height: 35%;
   max-width: 25em;
   margin: auto;
   background-color: #212121;
@@ -184,7 +184,8 @@ margin-top: 5px;
 color: #d4fd02;
 }
 
-.goback{
+.help-screen > button {
+margin-left: 46%;
   border: none;
   color: white;
   font-size: 1.25em;

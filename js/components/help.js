@@ -3,7 +3,7 @@ import {connect} from 'react-redux';
 import {
    toggleInfoModel
 } from '../actions/actions';
-import ReactCSSTransitionGroup from 'react-addons-css-transition-group'
+
 
 
 

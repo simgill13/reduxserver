@@ -56,13 +56,15 @@ export const fetchData = () => {
 }
 
 export const postData = (guesses) => {
+
   return (dispatch) => {
+  	console.log(dispatch);
     fetch('http://localhost:8081/api/guesses', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
         },
-        body: JSON.stringify(guesses)
+        body: JSON.stringify({guesses})
     })
     .then(response => response.json())
     .then(json => {

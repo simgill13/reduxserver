@@ -2,10 +2,13 @@ import React from 'react';
 import {connect} from 'react-redux';
 import Card from './card';
 import Help from './help';
+import NameEntry from './name-entry';
 import {
     newGame,
     toggleInfoModel,
-    fetchData
+    fetchData,
+    updateUser,
+    toggleComplete,
 } from '../actions/actions';
 
 
@@ -43,6 +46,14 @@ export class Game extends React.Component {
               <Help />
             </div>
         )}
+
+        if(this.props.completed)  {
+          return ( 
+            <div className="help-screen">
+            <NameEntry />
+            </div>
+            )}
+
         return (
           <div className='Game' >
 

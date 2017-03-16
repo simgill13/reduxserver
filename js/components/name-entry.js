@@ -2,11 +2,13 @@ import React from 'react';
 import {connect} from 'react-redux';
 import {
     updateUser,
-    toggleComplete
+    toggleComplete,
+    postData,
 } from '../actions/actions';
 
 const mapStateToProps = (state, props) => ({
-    userName: state.userName
+    userName: state.userName,
+    guesses: state.guesses,
 });
 
 export class NameEntry extends React.Component {
@@ -21,17 +23,23 @@ export class NameEntry extends React.Component {
       this.props.dispatch(updateUser(event.target.value));
     }
 
-    removeNameEntry() {
-      this.props.dispatch(toggleComplete);
+    removeNameEntry(e) {
+      console.log('hi')
+      e.preventDefault();
+      console.log(toggleComplete);
+      this.props.dispatch(toggleComplete());
+      this.props.dispatch(postData(4));
+     
+   
     }
 
     render() {
           return (
             <div className="name-entry">
               <h1 className="name-entry-title">You got it right!</h1>
-              <form>
+              <form onSubmit={this.removeNameEntry}>
                 <input type='text' placeholder='Enter your initials: ' onChange={this.grabValue} value={this.props.userName}></input>
-                <button className ="goback" type="submit" onSubmit={this.removeNameEntry}>Submit</button>
+                <button className ="goback" type="submit">Submit</button>
               </form>
             </div>
           )}

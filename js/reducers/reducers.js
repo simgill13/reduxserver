@@ -22,6 +22,7 @@ const initialState = {
     userName: '',
 };
 
+console.log('correctAnswer', initialState.correctAnswer);
 export default (state, action) => {
     state = state || initialState;
     if (action.type === NEW_GAME) {

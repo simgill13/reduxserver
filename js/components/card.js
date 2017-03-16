@@ -48,7 +48,7 @@ export class Card extends React.Component {
                 <h2 className="banner"> {this.props.feedback}</h2>
             </div>
             <div className='input-div'>
-              <input autoFocus textarea = 'text' placeholder=" 42" className = "input-field"  onChange={this.grabVal} value={this.props.guessDraft}></input>
+              <input autoFocus placeholder="42" className = "input-field"  onChange={this.grabVal} value={this.props.guessDraft}></input>
             </div>
             <button className="guessButton" type ="submit" onClick= {this.makeGuess} >Guess</button>
             <p className = "guess">Guess # <span className='span'>{this.props.guesses.length}</span></p>

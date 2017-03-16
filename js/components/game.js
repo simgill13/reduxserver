@@ -13,40 +13,30 @@ const mapStateToProps = (state, props) => ({
     guesses: state.guesses,
     showInfoModel: state.showInfoModel,
     loadingApi: state.loadingApi,
-    bestScore: state.bestScore
+    bestScore: state.bestScore,
+    completed: state.completed,
 });
-
-const mapDispatchToProps = (dispatch) => ({
-  getData: () => dispatch(fetchData())
-})
 
 export class Game extends React.Component {
     constructor(props) {
         super(props);
         this.resetGame = this.resetGame.bind(this);
         this.showHelp = this.showHelp.bind(this);
-        this.props.getData();
+        this.props.dispatch(fetchData());
     }
 
     showHelp(event) {
        this.props.dispatch(toggleInfoModel())
     }
 
-   
-
-
-
-
     resetGame(event) {
-      this.props.dispatch(newGame())
+      this.props.dispatch(newGame());
+      this.props.dispatch(fetchData());
     }
-
-
-
-
 
     render() {
       console.log(this.props.bestScore);
+      console.log(this.props.completed);
         if(this.props.showInfoModel === true){
           return (
             <div className = "Help">
@@ -62,10 +52,10 @@ export class Game extends React.Component {
             <button type ="submit" className = "new-game" onClick={this.resetGame} > +NEW GAME </button>
             </div>
              <h1 className = "game-title">Feeling Lucky? </h1>
-              <p className = "bestScore">Top Score {this.props.bestScore} </p>
+              <p className = "bestScore">{this.props.loadingApi ? "Loading..." : `Top Score ${this.props.bestScore}`}</p>
               <Card />
           </div>
         )
     }
   }
-export default connect(mapStateToProps,mapDispatchToProps)(Game);
+export default connect(mapStateToProps)(Game);

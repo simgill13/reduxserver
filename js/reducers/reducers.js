@@ -4,7 +4,7 @@ import {
     TOGGLE_INFO_MODEL,
     UPDATE_GUESS_FIELD,
     REQUEST_DATA,
-    RECIEVE_DATA
+    RECIEVE_DATA,
 } from '../actions/actions';
 
 const initialState = {
@@ -14,7 +14,9 @@ const initialState = {
     showInfoModel: false,
     guessDraft:"",
     loadingApi: false,
-    bestScore: 100
+    bestScore: 100,
+    completed: false,
+    currentNumber:-1,
 };
 
 export default (state, action) => {
@@ -41,6 +43,7 @@ export default (state, action) => {
         const difference = Math.abs(guess - state.correctAnswer);
 
         let feedback;
+        let completed = false;
         if (difference >= 50) {
             feedback = 'You\'re Ice Cold...';
         }
@@ -58,10 +61,12 @@ export default (state, action) => {
         }
         else {
             feedback = 'You got it!';
+            completed = true;
         }
 
         state = Object.assign({}, state, {
             feedback,
+            completed,
             guesses: state.guesses.concat(action.guess),
             guessDraft: " ",
             guesses: [...state.guesses,state.guessDraft]
@@ -97,16 +102,3 @@ export default (state, action) => {
     }
     return state;
 };
-
-
-
-
-
-
-
-
-
-
-
-
-

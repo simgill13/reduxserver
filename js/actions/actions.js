@@ -38,9 +38,10 @@ export const requestData = () => ({
 })
 
 export const RECIEVE_DATA = 'RECIEVE_DATA';
-export const recieveData = (data) => ({
+export const recieveData = (data, userName) => ({
   type: RECIEVE_DATA,
-  data
+  data,
+  userName
 })
 
 
@@ -56,7 +57,8 @@ export const fetchData = () => {
   }
 }
 
-export const postData = (guesses) => {
+export const postData = (guesses,userName) => {
+	console.log(userName);
 
   return (dispatch) => {
   	console.log(dispatch);
@@ -65,7 +67,7 @@ export const postData = (guesses) => {
         headers: {
             'Content-Type': 'application/json'
         },
-        body: JSON.stringify({guesses})
+        body: JSON.stringify({guesses,userName})
     })
     .then(response => response.json())
     .then(json => {

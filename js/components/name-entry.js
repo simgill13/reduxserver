@@ -25,11 +25,11 @@ export class NameEntry extends React.Component {
     }
 
     removeNameEntry(e) {
-      console.log(this.props.guesses);
+      console.log(this.props.userName);
       e.preventDefault();
       console.log(toggleComplete);
       this.props.dispatch(toggleComplete());
-      this.props.dispatch(postData(this.props.guesses.length));
+      this.props.dispatch(postData(this.props.guesses.length, this.props.userName));
       this.props.dispatch(newGame());
      
    

@@ -11,19 +11,22 @@ app.use((req, res, next) => {
 });
 
 let guesses = 0;
-
+let userName= "sim";
 app.get('/api/guesses', (req, res) => {
     res.json({
-        guesses
+        guesses,
+        userName
     });
 });
 
 app.post('/api/guesses', jsonParser, (req, res) => {
     if (guesses === 0 || req.body.guesses < guesses) {
         guesses = req.body.guesses;
+        userName = req.body.userName;
     }
     res.json({
-        guesses
+        guesses,
+        userName
     });
 });
 

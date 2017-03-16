@@ -108,7 +108,8 @@ export default (state, action) => {
     else if (action.type === RECIEVE_DATA) {
         state = Object.assign({},state,{
             loadingApi:false,
-            bestScore: action.data
+            bestScore: action.data,
+            userName: action.userName
         })
     }
     else if (action.type === UPDATE_USER) {

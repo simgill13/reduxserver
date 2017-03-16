@@ -5,7 +5,7 @@
   display: block;
 	text-align: center;
   border: 1px solid #D4FD02;
-  height: 35%;
+  max-height: 27em;
   max-width: 25em;
   margin: auto;
   background-color: #212121;

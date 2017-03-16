@@ -38,8 +38,8 @@ export class Game extends React.Component {
     }
 
     render() {
-      console.log(this.props.bestScore);
-      console.log(this.props.completed);
+      // console.log(this.props.bestScore);
+      // console.log(this.props.completed);
         if(this.props.showInfoModel === true){
           return (
             <div className = "Help">

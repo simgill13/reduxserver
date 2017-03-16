@@ -2,6 +2,7 @@ import React from 'react';
 import {connect} from 'react-redux';
 import {
     updateUser,
+    newGame,
     toggleComplete,
     postData,
 } from '../actions/actions';
@@ -24,11 +25,12 @@ export class NameEntry extends React.Component {
     }
 
     removeNameEntry(e) {
-      console.log('hi')
+      console.log(this.props.guesses);
       e.preventDefault();
       console.log(toggleComplete);
       this.props.dispatch(toggleComplete());
-      this.props.dispatch(postData(4));
+      this.props.dispatch(postData(this.props.guesses.length));
+      this.props.dispatch(newGame());
      
    
     }

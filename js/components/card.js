@@ -47,10 +47,12 @@ export class Card extends React.Component {
             <div className="bannerDiv">
                 <h2 className="banner"> {this.props.feedback}</h2>
             </div>
-            <input className = "input-field" onChange={this.grabVal} value={this.props.guessDraft} ></input>
+            <div className='input-div'>
+              <input autoFocus textarea = 'text' placeholder=" 42" className = "input-field"  onChange={this.grabVal} value={this.props.guessDraft}></input>
+            </div>
             <button className="guessButton" type ="submit" onClick= {this.makeGuess} >Guess</button>
-            <p>Guess # {this.props.guesses.length}</p>
-            <h3 className="array">  {` ${this.props.guesses} `} </h3>
+            <p className = "guess">Guess # <span className='span'>{this.props.guesses.length}</span></p>
+            <h3 className="array">{`${this.props.guesses}`}</h3>
         </div>
         );
     }

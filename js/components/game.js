@@ -38,7 +38,7 @@ export class Game extends React.Component {
             <button className = "need-help" type="submit" onClick={this.showHelp} > NEED HELP? </button>
             <button type ="submit" className = "new-game" onClick={this.resetGame} > +NEW GAME </button>
             </div>
-             <h1 className = "game-title">HOT or COLD</h1>
+             <h1 className = "game-title">Feeling Lucky?</h1>
               <Card />
           </div>
         )

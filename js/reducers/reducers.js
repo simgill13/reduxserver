@@ -19,7 +19,7 @@ const initialState = {
     bestScore: 100,
     completed: false,
     currentNumber:-1,
-    userName: '',
+    userName: "",
 };
 
 console.log('correctAnswer', initialState.correctAnswer);

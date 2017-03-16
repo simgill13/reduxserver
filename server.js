@@ -11,7 +11,7 @@ app.use((req, res, next) => {
 });
 
 let guesses = 0;
-let userName= "sim";
+let userName= "";
 app.get('/api/guesses', (req, res) => {
     res.json({
         guesses,
@@ -29,6 +29,21 @@ app.post('/api/guesses', jsonParser, (req, res) => {
         userName
     });
 });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 app.listen(8081, () => {
     console.log('Listening on port 8081');

@@ -11,23 +11,20 @@ import {
     toggleComplete,
 } from '../actions/actions';
 
-
-const mapStateToProps = (state, props) => ({
-    guesses: state.guesses,
-    showInfoModel: state.showInfoModel,
-    loadingApi: state.loadingApi,
-    bestScore: state.bestScore,
-    completed: state.completed,
-    userName:state.userName,
-});
-
 export class Game extends React.Component {
     constructor(props) {
         super(props);
         this.resetGame = this.resetGame.bind(this);
         this.showHelp = this.showHelp.bind(this);
-        this.props.dispatch(fetchData());
+        
     }
+
+    componentDidMount() {
+      this.props.dispatch(fetchData());
+    }
+
+
+
 
     showHelp(event) {
        this.props.dispatch(toggleInfoModel())
@@ -71,4 +68,23 @@ export class Game extends React.Component {
         )
     }
   }
+
+
+  const mapStateToProps = (state, props) => ({
+    guesses: state.guesses,
+    showInfoModel: state.showInfoModel,
+    loadingApi: state.loadingApi,
+    bestScore: state.bestScore,
+    completed: state.completed,
+    userName:state.userName,
+});
 export default connect(mapStateToProps)(Game);
+
+
+
+
+
+
+
+
+

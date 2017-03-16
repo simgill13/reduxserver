@@ -53,15 +53,13 @@ export const fetchData = () => {
     .then(response => response.json())
     .then(json => {
     	// console.log(json); 
-    	dispatch(recieveData(json.guesses))})
+    	dispatch(recieveData(json.guesses, json.userName))})
   }
 }
 
 export const postData = (guesses,userName) => {
-	console.log(userName);
 
   return (dispatch) => {
-  	console.log(dispatch);
     fetch('http://localhost:8081/api/guesses', {
         method: 'POST',
         headers: {
@@ -71,7 +69,22 @@ export const postData = (guesses,userName) => {
     })
     .then(response => response.json())
     .then(json => {
+    	console.log(json)
     	// console.log(json); 
-    	dispatch(recieveData(json.guesses))})
+    	dispatch(recieveData(json.guesses,json.userName))})
   }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
